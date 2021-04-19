@@ -43,9 +43,6 @@ namespace MvcPedidosAppInsights.Controllers
             TraceTelemetry trace = new TraceTelemetry(mensaje);
             this.telemetryClient.TrackTrace(trace);
 
-            ////Trace.TraceInformation
-            ////    ("El pedido de " + nombre + " es: " + cantidad + " de bocadillos de " + plato);
-
             return View();
         }
 
