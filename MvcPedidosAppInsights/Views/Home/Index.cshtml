@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Haga su pedido</h1>
+    <form method="post">
+        <label>Nombre: </label>
+        <input type="text" name="nombre"/>
+        <br/>
+        <label>Platos: </label>
+        <select name="plato">
+            <option value="calamares">Bocadillo de calamares</option>
+            <option value="toritlla">Bocadillo de tortilla</option>
+            <option value="jamonqueso">Bocadillo de jamón y queso</option>
+            <option value="iberico">Bocadillo de jamón ibérico</option>
+        </select>
+        <br/>
+        <label>Cantidad</label>
+        <input type="text" name="cantidad"/>
+        <br/>
+        <button type="submit">Hacer pedido</button>
+    </form>
+</div>
+<h2>@ViewBag.Mensaje</h2>
