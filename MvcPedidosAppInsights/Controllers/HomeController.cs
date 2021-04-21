@@ -26,22 +26,30 @@ namespace MvcPedidosAppInsights.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(String nombre, String plato, int cantidad)
+        public IActionResult Index(String nombre, String plato, int cantidadbocadillos, String postre, int cantidadpostres)
         {
-            ViewBag.Mensaje = "Su pedido es: " + cantidad + " unidades de " + plato + "Gracias "
-                + nombre;
+            ViewBag.Mensaje = "Gracias por realizar su pedido.";
 
-            this.telemetryClient.TrackEvent("Pedidos Realizado");
+            this.telemetryClient.TrackEvent("Pedido de Bocadillos");
+            MetricTelemetry metricBocadillo= new MetricTelemetry();
+            metricBocadillo.Name = "Pedidos bocadillos";
+            metricBocadillo.Sum = cantidadbocadillos;
+            this.telemetryClient.TrackMetric(metricBocadillo);
 
-            MetricTelemetry metricPedido = new MetricTelemetry();
-            metricPedido.Name = "Pedidos bocadillos";
-            metricPedido.Sum = cantidad;
-            this.telemetryClient.TrackMetric(metricPedido);
+            this.telemetryClient.TrackEvent("Pedido de Postre");
+            MetricTelemetry metricPostre = new MetricTelemetry();
+            metricPostre.Name = "Pedidos postre";
+            metricPostre.Sum = cantidadpostres;
+            this.telemetryClient.TrackMetric(metricPostre);
 
-            String mensaje = "El pedido de " + nombre + " es: " + cantidad + " de bocadillos de " + plato;
+            String mensajeBocadillo = "Nombre: " + nombre + ". Unidades: " + cantidadbocadillos + ". Bocadillo: "+ plato;
+            String mensajePostre = "Nombre: " + nombre + ". Unidades: " + cantidadpostres + ". Postre: " + postre;
 
-            TraceTelemetry trace = new TraceTelemetry(mensaje);
-            this.telemetryClient.TrackTrace(trace);
+            TraceTelemetry traceBocadillo = new TraceTelemetry(mensajeBocadillo);
+            TraceTelemetry tracePostres = new TraceTelemetry(mensajePostre);
+
+            this.telemetryClient.TrackTrace(traceBocadillo);
+            this.telemetryClient.TrackTrace(tracePostres);
 
             return View();
         }

@@ -6,8 +6,8 @@
     <h1 class="display-4">Haga su pedido</h1>
     <form method="post">
         <label>Nombre: </label>
-        <input type="text" name="nombre"/>
-        <br/>
+        <input type="text" name="nombre" />
+        <br />
         <label>Platos: </label>
         <select name="plato">
             <option value="calamares">Bocadillo de calamares</option>
@@ -15,10 +15,21 @@
             <option value="jamonqueso">Bocadillo de jamón y queso</option>
             <option value="iberico">Bocadillo de jamón ibérico</option>
         </select>
-        <br/>
-        <label>Cantidad</label>
-        <input type="text" name="cantidad"/>
-        <br/>
+        <br />
+        <label>Cantidad de bocadillos</label>
+        <input type="text" name="cantidadbocadillos" />
+        <br />
+        <label>Platos: </label>
+        <select name="postre">
+            <option value="tartaqueso">Tarta de queso</option>
+            <option value="tiramisu">Tiramisú</option>
+            <option value="fruta">Fruta</option>
+            <option value="tartachocolates">Tarta tres chocolates</option>
+        </select>
+        <br />
+        <label>Cantidad del postre</label>
+        <input type="text" name="cantidadpostres" />
+        <br />
         <button type="submit">Hacer pedido</button>
     </form>
 </div>
